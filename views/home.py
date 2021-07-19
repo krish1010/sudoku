@@ -53,13 +53,13 @@ def find_next_cell_to_fill(sudoku):
 
 
 def is_valid(sudoku, i, j, e):
-    rowOk = all([e != sudoku[i][x] for x in range(9)])
-    if rowOk:
-        columnOk = all([e != sudoku[x][j] for x in range(9)])
-        if columnOk:
-            secTopX, secTopY = 3 * (i // 3), 3 * (j // 3)
-            for x in range(secTopX, secTopX + 3):
-                for y in range(secTopY, secTopY + 3):
+    row_ok = all([e != sudoku[i][x] for x in range(9)])
+    if row_ok:
+        column_ok = all([e != sudoku[x][j] for x in range(9)])
+        if column_ok:
+            sec_top_x, sec_top_y = 3 * (i // 3), 3 * (j // 3)
+            for x in range(sec_top_x, sec_top_x + 3):
+                for y in range(sec_top_y, sec_top_y + 3):
                     if sudoku[x][y] == e:
                         return False
             return True
