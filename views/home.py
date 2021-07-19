@@ -101,18 +101,18 @@ def is_valid_sudoku(board):
     if not is_in_range(board):
         return False
     unique = [False] * (N + 1)
-    for i in range(0, N):
-        for m in range(0, N + 1):
+    for i in range(N):
+        for m in range(N + 1):
             unique[m] = False
-        for j in range(0, N):
+        for j in range(N):
             Z = board[i][j]
             if unique[Z]:
                 return False
             unique[Z] = True
-    for i in range(0, N):
-        for m in range(0, N + 1):
+    for i in range(N):
+        for m in range(N + 1):
             unique[m] = False
-        for j in range(0, N):
+        for j in range(N):
             Z = board[j][i]
             if unique[Z]:
                 return False
@@ -122,8 +122,8 @@ def is_valid_sudoku(board):
         for j in range(0, N - 2, 3):
             for m in range(0, N + 1):
                 unique[m] = False
-            for k in range(0, 3):
-                for l in range(0, 3):
+            for k in range(3):
+                for l in range(3):
                     X = i + k
                     Y = j + l
                     Z = board[X][Y]
