@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sudoku</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='home/css/home.css') }}">
+    <link rel="icon" type="text/css" href="{{ url_for('static',filename='home/images/favicon.png') }}">
+    <script src="{{ url_for('static',filename='home/js/script.js') }}"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+<div class="center">
+    <table class="center">
+        <caption>May the Force be with You.</caption>
+        <colgroup>
+            <col>
+            <col>
+            <col>
+        <colgroup>
+            <col>
+            <col>
+            <col>
+        <colgroup>
+            <col>
+            <col>
+            <col>
+            {% set index = {'value': 0} %}
+            {% for row in value %}
+                {% if index.value == 27 or index.value == 54 %}
+                    <tbody>
+                {% endif %}
+                <tr>
+                    {% for cell in row %}
+                        {% for data in cell %}
+                            {% if data == 0 %}
+                                <td id="{{ index.value }}" contenteditable="true"
+                                    onkeypress="return checkNumber(this.id, event)"></td>
+                            {% else %}
+                                <td id="{{ index.value }}" contenteditable="false">{{ data }}</td>
+                            {% endif %}
+                            {% if index.update({'value': (index.value + 1)}) %}
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
+                </tr>
+
+            {% endfor %}
+    </table>
+    <br><br>
+    <input class="button" type="button" id="solve" value="Solve" onclick="foo(this.id)">
+    <input class="button" type="button" id="check" value="Check solution" onclick="foo(this.id)">
+    <input class="button" type="button" id="reset" value="Reset" onclick="resetBoard()">
+    <input class="button" type="button" id="new" value="New" onclick="newBoard()">
+</div>
+</body>
+</html>

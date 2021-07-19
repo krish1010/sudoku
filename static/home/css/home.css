@@ -1,0 +1,55 @@
+table {
+    border-collapse: collapse;
+    font-family: Calibri, sans-serif;
+    font-size: 120%;
+}
+
+colgroup, tbody {
+    border: solid medium;
+}
+
+td {
+    border: solid thin;
+    height: 5.4em;
+    width: 5.4em;
+    text-align: center;
+    padding: 2px;
+}
+caption{
+    font-size: 30px;
+}
+
+body {
+    background-color: darkgray;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+.button:hover {
+    background-color: #3e8e41
+}
+
+.button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
