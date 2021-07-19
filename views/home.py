@@ -40,11 +40,11 @@ def solve():
         r = check_validity(l)
         return jsonify({'status': r})
     else:
-        solveSudoku(l)
+        solve_sudoku(l)
     return jsonify({'solution': l})
 
 
-def findNextCellToFill(sudoku):
+def find_next_cell_to_fill(sudoku):
     for x in range(9):
         for y in range(9):
             if sudoku[x][y] == 0:
@@ -52,7 +52,7 @@ def findNextCellToFill(sudoku):
     return -1, -1
 
 
-def isValid(sudoku, i, j, e):
+def is_valid(sudoku, i, j, e):
     rowOk = all([e != sudoku[i][x] for x in range(9)])
     if rowOk:
         columnOk = all([e != sudoku[x][j] for x in range(9)])
@@ -66,24 +66,24 @@ def isValid(sudoku, i, j, e):
     return False
 
 
-def solveSudoku(sudoku, i=0, j=0):
-    i, j = findNextCellToFill(sudoku)
+def solve_sudoku(sudoku, i=0, j=0):
+    i, j = find_next_cell_to_fill(sudoku)
     if i == -1:
         return True
     for e in range(1, 10):
-        if isValid(sudoku, i, j, e):
+        if is_valid(sudoku, i, j, e):
             sudoku[i][j] = e
-            if solveSudoku(sudoku, i, j):
+            if solve_sudoku(sudoku, i, j):
                 return True
             sudoku[i][j] = 0
     return False
 
 
 def check_validity(l):
-    return isValidSudoku(l)
+    return is_valid_sudoku(l)
 
 
-def isinRange(board):
+def is_in_range(board):
     N = 9
 
     for i in range(0, N):
@@ -96,10 +96,10 @@ def isinRange(board):
     return True
 
 
-def isValidSudoku(board):
+def is_valid_sudoku(board):
     N = 9
 
-    if (isinRange(board) == False):
+    if not is_in_range(board):
         return False
 
     unique = [False] * (N + 1)
@@ -113,7 +113,7 @@ def isValidSudoku(board):
 
             Z = board[i][j]
 
-            if (unique[Z] == True):
+            if unique[Z]:
                 return False
 
             unique[Z] = True
@@ -127,7 +127,7 @@ def isValidSudoku(board):
 
             Z = board[j][i]
 
-            if (unique[Z] == True):
+            if unique[Z]:
                 return False
 
             unique[Z] = True
@@ -148,7 +148,7 @@ def isValidSudoku(board):
 
                     Z = board[X][Y]
 
-                    if unique[Z] == True:
+                    if unique[Z]:
                         return False
 
                     unique[Z] = True
