@@ -78,7 +78,3 @@ function newBoard() {
     swal("Loading a new one for you right away!");
     location.reload();
 }
-
-function startTime(){
-
-}
