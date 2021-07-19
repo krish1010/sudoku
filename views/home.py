@@ -85,14 +85,11 @@ def check_validity(l):
 
 def is_in_range(board):
     N = 9
-
-    for i in range(0, N):
-        for j in range(0, N):
-
+    for i in range(N):
+        for j in range(N):
             if ((board[i][j] <= 0) or
                     (board[i][j] > 9)):
                 return False
-
     return True
 
 
