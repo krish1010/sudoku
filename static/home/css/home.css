@@ -10,12 +10,14 @@ colgroup, tbody {
 
 td {
     border: solid thin;
-    height: 5.4em;
-    width: 5.4em;
+    height: 70px;
+    width: 70px;
     text-align: center;
     padding: 2px;
+    font-size: 40px;
 }
-caption{
+
+caption {
     font-size: 30px;
 }
 
